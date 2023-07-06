@@ -67,6 +67,9 @@ public class Frame{
                 firstName = textField1.getText();
                 lastName = textField2.getText();
                 con.register(socialSecurity, firstName, lastName);
+                //myframe.dispatchEvent(new WindowEvent(myframe, WindowEvent.WINDOW_CLOSING));
+                myframe.setVisible(false);
+                new SecondFrame();
             }
             
         });

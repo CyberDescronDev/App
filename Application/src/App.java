@@ -1,11 +1,10 @@
 
 
 public class App {
-    public static void main(String[] args) {
-        
-        //SqlConnection.register();
-        
+    public static void main(String[] args) {        
         new Frame();
+
+       
         
         
         
