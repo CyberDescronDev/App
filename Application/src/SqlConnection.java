@@ -14,7 +14,7 @@ public class SqlConnection extends Frame{
         try {
             String url = "jdbc:mysql://localhost:3306/patients";
             
-            System.out.println("Enter your Parameters");
+        
             Connection conn = DriverManager.getConnection(url, "root", "root");
             Statement st = conn.createStatement();
           

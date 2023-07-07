@@ -2,11 +2,6 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +11,7 @@ public class SecondFrame {
 
 
     
-    
+    public int roomNo;
     SecondFrame(){
         JFrame myFrame = new JFrame("Department");
         JLabel label = new JLabel("Select Department");
@@ -29,7 +24,7 @@ public class SecondFrame {
 
         JLabel lbl1 = new JLabel("-Doc Hakan");
         JLabel lbl2 = new JLabel("-Doc Simge Gezer");
-        JLabel lbl3 = new JLabel("-Doc Oğuz Barış");
+        JLabel lbl3 = new JLabel("-Doc Oğuz Gezmiş");
 
         JLabel lbl4 = new JLabel("-Doc Sebattin");
         JLabel lbl5 = new JLabel("-Doc Baattin");
@@ -87,22 +82,8 @@ public class SecondFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 myFrame.setVisible(false);
-            try {
-                 String url = "jdbc:mysql://localhost:3306/patients";
-                Connection conn = DriverManager.getConnection(url, "root", "root");
-                Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-                
-                
-                String query = "select * from patientinfo";
-                ResultSet rs = st.executeQuery(query);
-                rs.last();
-                System.out.println("PAtient Id : "+rs.getString("patient_id"));
-                conn.close();
-            } catch (Exception ee) {
-                System.out.println(ee.getMessage());
-            }
-                
-                
+                roomNo = 100;              
+                new ThirdFrame(roomNo);
             }
             
         });
@@ -112,6 +93,8 @@ public class SecondFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 myFrame.setVisible(false);
+                roomNo = 200;
+                new ThirdFrame(roomNo);
                 
                 
                 
@@ -124,7 +107,8 @@ public class SecondFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 myFrame.setVisible(false);
-                
+                roomNo = 300;
+                new ThirdFrame(roomNo);
             }
             
         });
